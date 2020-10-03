@@ -302,7 +302,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_SIZE:
 	{
 		// Resizes the engine when the shape and size of the view changes
-		if (m_engine.IsInitialised())
+		if (m_engine.IsInitialised() && wParam != SIZE_MINIMIZED)
 		{
 			try
 			{
