@@ -151,3 +151,32 @@ SimpleMath::Color Cube::GetMaterialColor(void)
 {
 	return m_materialColor;
 }
+
+Vector3 Cube::GetCentreOfMass(void)
+{
+	Vector3 centre;
+
+	std::for_each(m_vertices.begin(), m_vertices.end(), [&](VertexLayout& vertex)
+	{
+		centre += vertex.Position;
+	});
+
+	return centre / static_cast<float>(m_vertices.size());
+}
+
+BoundingBox Cube::GetBoundingBox(void)
+{
+	BoundingBox box;
+	box.Center = GetCentreOfMass();
+	Vector3 extents;
+	std::for_each(m_vertices.begin(), m_vertices.end(), [&](VertexLayout& vertex)
+	{
+		Vector3 pos = vertex.Position;
+		extents.x = extents.x > pos.x ? extents.x : pos.x;
+		extents.y = extents.y > pos.y ? extents.y : pos.y;
+		extents.z = extents.z > pos.z ? extents.z : pos.z;
+	});
+	box.Extents = extents;
+
+	return box;
+}

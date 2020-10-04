@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Engine.h"
+#include "directxcollision.h"
 #include "IDrawable.h"
 
 
@@ -360,8 +361,8 @@ ComPtr<ID3D11DeviceContext> Engine::GetDeviceContext()
 
 int Engine::CreateCamera()
 {
-	m_viewCamera.SetRotation({ 20.0f, 40.0f, 0.0f });
-	m_viewCamera.SetPosition({ 0.0f, 0.0f, 13.0f });
+	m_viewCamera.SetRotation({ 00.0f, 0.0f, 0.0f });
+	m_viewCamera.SetPosition({ 0.0f, 0.0f, 1.0f });
 	return S_OK;
 }
 
@@ -515,7 +516,7 @@ bool Engine::IsInitialised()
 
 Matrix Engine::CalculateProjectionMatrix()
 {
-	return DirectX::XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), float(m_width) / float(m_height), 0.1f, 1000.0f);;
+	return DirectX::XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), float(m_width) / float(m_height), 0.1f, 1000.0f);
 }
 
 void Engine::SetDiffuseColor(Vector3 color)
@@ -536,4 +537,33 @@ void Engine::SetAmbientColor(Vector3 color)
 Vector3 Engine::GetAmbientColor(void)
 {
 	return m_light.GetAmbient();
+}
+
+Ray Engine::GetIntersectionRay(int x, int y)
+{
+	float pointX = (2.0f * static_cast<float>(x) / static_cast<float>(m_width)) - 1.0f;
+	float pointY = (2.0f * static_cast<float>(y) / static_cast<float>(m_height)) - 2.0f;
+
+	Matrix projectionMatrix = m_engineMatrices.projectionMatrix;
+	pointX = pointX / projectionMatrix._11;
+	pointY = pointY / projectionMatrix._22;
+
+	Matrix inverseViewMatrix = m_engineMatrices.viewMatrix.Invert();
+	
+	Vector3 rayDirection;
+	rayDirection.x = (pointX * inverseViewMatrix._11) + (pointY * inverseViewMatrix._21) + inverseViewMatrix._31;
+	rayDirection.y = (pointX * inverseViewMatrix._12) + (pointY * inverseViewMatrix._22) + inverseViewMatrix._32;
+	rayDirection.z = (pointX * inverseViewMatrix._13) + (pointY * inverseViewMatrix._23) + inverseViewMatrix._33;
+
+	Vector3 origin = m_viewCamera.GetPosition();
+
+	Matrix inverseModelMatrix = m_engineMatrices.modelMatrix.Invert();
+
+	Vector3 rayOrigin;
+	rayOrigin = Vector3::Transform(rayOrigin, inverseModelMatrix);
+	rayDirection = Vector3::TransformNormal(rayDirection, inverseModelMatrix);
+
+	rayDirection.Normalize();
+
+	return Ray(rayOrigin, rayDirection);
 }

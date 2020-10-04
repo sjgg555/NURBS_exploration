@@ -31,6 +31,9 @@ public:
 	virtual void SetMaterialColor(SimpleMath::Color color) = 0;
 	virtual SimpleMath::Color GetMaterialColor(void) = 0;
 
+	virtual Vector3 GetCentreOfMass(void) = 0;
+	virtual BoundingBox GetBoundingBox(void) = 0;
+
 protected:
 	IDrawable(SimpleMath::Color materialColor) { m_materialColor = materialColor; }
 	virtual int ConstructBuffers(Engine& renderTarget) = 0;

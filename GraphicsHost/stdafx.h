@@ -23,6 +23,7 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 #include <d3d11.h>
 #include <dxgi.h>

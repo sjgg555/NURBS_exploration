@@ -30,6 +30,7 @@ POINTS m_mouseLocation;
 
 bool m_mouseLeftPressed = false;
 bool m_middleMousePressed = false;
+bool m_controlPressed = false;
 
 int m_currentColor = 0;
 
@@ -157,6 +158,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		m_mouseLeftPressed = true;
 		m_mousePressedLocation = MAKEPOINTS(lParam);
+		if (m_controlPressed)
+		{
+			Ray mouseRay = m_engine.GetIntersectionRay(m_mouseLocation.x, m_mouseLocation.y);
+			auto dir = mouseRay.direction;
+		}
 		break;
 	}
 	case WM_LBUTTONUP:
@@ -180,19 +186,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		// Handles capturing mouse movements across the viewport 
 		m_mouseLocation = MAKEPOINTS(lParam);
 
-		if (m_mouseLeftPressed)
+		if (!m_controlPressed)
 		{
-			m_engine.MouseRotate(m_mousePressedLocation, m_mouseLocation);
-		}
-		else if (m_middleMousePressed)
-		{
-			m_engine.MouseZoom(m_mousePressedLocation, m_mouseLocation);
-		}
+			if (m_mouseLeftPressed)
+			{
+				m_engine.MouseRotate(m_mousePressedLocation, m_mouseLocation);
+			}
+			else if (m_middleMousePressed)
+			{
+				m_engine.MouseZoom(m_mousePressedLocation, m_mouseLocation);
+			}
 
-		if (m_mouseLeftPressed || m_middleMousePressed)
-		{
-			m_mousePressedLocation = m_mouseLocation;
-			m_engine.Render(m_geometries);
+			if (m_mouseLeftPressed || m_middleMousePressed)
+			{
+				m_mousePressedLocation = m_mouseLocation;
+				m_engine.Render(m_geometries);
+			}
 		}
 		break;
 	}
@@ -292,6 +301,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			mesh->SetResolution(mesh->GetResolution() + 1);
 			break;
 		}
+		case VK_CONTROL:
+		{
+			m_controlPressed = true;
+			break;
+		}
 		default:
 		{
 			break;
@@ -321,6 +335,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		PAINTSTRUCT ps;
 		HDC hdc = BeginPaint(hWnd, &ps);
 		EndPaint(hWnd, &ps);
+		break;
+	}
+	case WM_KEYUP:
+	{
+		m_controlPressed = false;
 		break;
 	}
 	case WM_DESTROY:

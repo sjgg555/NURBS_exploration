@@ -29,6 +29,9 @@ public:
 	void SetVertexNormal(int index, Vector3 normal);
 	Vector3 GetVertexNormal(int index);
 	
+	Vector3 GetCentreOfMass(void);
+	BoundingBox GetBoundingBox(void);
+
 protected:
 	int ConstructBuffers(Engine& renderTarget);
 

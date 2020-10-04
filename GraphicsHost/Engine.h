@@ -111,5 +111,7 @@ public:
 
 	void SetAmbientColor(Vector3 color);
 	Vector3 GetAmbientColor(void);
+
+	Ray GetIntersectionRay(int x, int y);
 };
 
