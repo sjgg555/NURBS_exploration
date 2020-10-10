@@ -6,14 +6,15 @@
 #include <windows.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace DirectX::SimpleMath;
 
 namespace Tests
 {
 	HWND CreateHWND()
 	{
 		return CreateWindowW(
-			(LPCWSTR)"STATIC",
-			(LPCWSTR)"dummy",
+			L"STATIC",
+			L"dummy",
 			WS_OVERLAPPEDWINDOW,
 			0,
 			0,
@@ -26,13 +27,15 @@ namespace Tests
 		);
 	}
 
-	TEST_CLASS(Engine)
+	TEST_CLASS(EngineTest)
 	{
 	public:
 		
 		TEST_METHOD(GivenFreshEngine_WhenGetViewMatrix_ThenIdentityMatrix)
 		{
-			Assert::IsTrue(true);
+			Engine engine(CreateHWND());
+			Matrix viewMatrix = engine.GetViewMatrix();
+			Assert::IsTrue(viewMatrix == SimpleMath::Matrix::Identity);
 		}
 	};
 }

@@ -4,7 +4,7 @@
 class IDrawable
 {
 public:
-	enum DrawableType
+	enum class DrawableType
 	{
 		PointCloud = 0,
 		Mesh = 1

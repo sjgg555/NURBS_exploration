@@ -11,7 +11,7 @@ using namespace DirectX::SimpleMath;
 class IDrawable;
 class Camera;
 
-class TEST_API Engine
+class Engine
 {
 private:
 	HWND m_hWnd;
@@ -88,8 +88,15 @@ private:
 
 public:
 
-	Engine();
-	Engine(HWND hWnd);
+	TEST_API Engine() :
+		m_hWnd(),
+		m_backgroundColour(Colors::Aquamarine.v),
+		m_vsyncEnabled(false),
+		m_viewCamera(),
+		m_light()
+	{
+	};
+	TEST_API Engine(HWND hWnd);
 
 	int Initialise(HWND hWnd);
 	void Render(const std::vector<std::unique_ptr<IDrawable>>& drawables);
@@ -114,5 +121,7 @@ public:
 	Vector3 GetAmbientColor(void);
 
 	Ray GetIntersectionRay(int x, int y);
+
+	TEST_API Matrix GetViewMatrix(void);
 };
 

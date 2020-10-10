@@ -31,5 +31,5 @@ float3 SimplePixelShader(PixelShaderInput input) : SV_TARGET
 
 	color = saturate(color);
 
-	return (materialColor * color);
+	return (materialColor.rgb * color);
 }

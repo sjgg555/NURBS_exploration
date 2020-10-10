@@ -27,12 +27,12 @@ void NURBSMesh::ConstructControlPoints(void)
 
 	std::vector<real> controlPoints = m_edgeSpline.controlPoints();
 
-	for (int i = 0; i < controlPoints.size(); i += DIMENSIONS)
+	for (size_t i = 0; i < controlPoints.size(); i += DIMENSIONS)
 	{
 		float zSpacing = (controlPointSpacing * (i / DIMENSIONS));
 		controlPoints[i] = m_size;
 		controlPoints[i + 1] = m_size;
-		controlPoints[i + 2] = m_size - zSpacing;
+		controlPoints[i + 2] = static_cast<real>(m_size) - static_cast<real>(zSpacing);
 	}
 
 	m_edgeSpline.setControlPoints(controlPoints);

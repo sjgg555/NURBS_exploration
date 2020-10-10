@@ -3,17 +3,7 @@
 #include "directxcollision.h"
 #include "IDrawable.h"
 
-
-Engine::Engine() :
-	m_hWnd(),
-	m_backgroundColour(Colors::Aquamarine.v),
-	m_vsyncEnabled(false),
-	m_viewCamera(),
-	m_light()
-{
-}
-
-Engine::Engine(HWND hWnd) :
+TEST_API Engine::Engine(HWND hWnd) :
 	m_hWnd(hWnd),
 	m_backgroundColour(Colors::Aquamarine.v),
 	m_vsyncEnabled(false),
@@ -566,4 +556,9 @@ Ray Engine::GetIntersectionRay(int x, int y)
 	rayDirection.Normalize();
 
 	return Ray(rayOrigin, rayDirection);
+}
+
+TEST_API Matrix Engine::GetViewMatrix(void)
+{
+	return m_engineMatrices.viewMatrix;
 }

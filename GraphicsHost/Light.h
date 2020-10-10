@@ -2,7 +2,7 @@
 
 using namespace DirectX::SimpleMath;
 
-class TEST_API Light
+class Light
 {
 private:
 	Vector3 m_diffuseColor;

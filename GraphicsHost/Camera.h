@@ -2,10 +2,10 @@
 
 using namespace DirectX::SimpleMath;
 
-class TEST_API Camera
+class Camera
 {
 public:
-	Camera() {};
+	TEST_API Camera() {};
 	~Camera() {};
 
 	void SetRotation(Vector3 rotation);
