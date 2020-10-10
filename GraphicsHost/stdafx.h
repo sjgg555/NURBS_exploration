@@ -33,6 +33,12 @@
 #include <d3dcompiler.h>
 #include "SimpleMath.h"
 
+#ifdef Tests_EXPORTS
+#define TEST_API __declspec(dllexport)
+#else
+#define TEST_API 
+#endif
+
 
 // reference additional headers your program requires here
 

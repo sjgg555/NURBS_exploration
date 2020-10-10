@@ -1,4 +1,5 @@
 #pragma once
+#include "stdafx.h"
 #include <memory>
 #include <vector>
 #include "Camera.h"
@@ -10,7 +11,7 @@ using namespace DirectX::SimpleMath;
 class IDrawable;
 class Camera;
 
-class Engine
+class TEST_API Engine
 {
 private:
 	HWND m_hWnd;

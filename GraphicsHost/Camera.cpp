@@ -1,15 +1,6 @@
 #include "stdafx.h"
 #include "Camera.h"
 
-Camera::Camera()
-{
-}
-
-
-Camera::~Camera()
-{
-}
-
 
 void Camera::SetRotation(Vector3 rotation)
 {

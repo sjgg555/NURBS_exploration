@@ -361,8 +361,8 @@ ComPtr<ID3D11DeviceContext> Engine::GetDeviceContext()
 
 int Engine::CreateCamera()
 {
-	m_viewCamera.SetRotation({ 00.0f, 0.0f, 0.0f });
-	m_viewCamera.SetPosition({ 0.0f, 0.0f, 1.0f });
+	m_viewCamera.SetRotation({ 20.0f, 40.0f, 0.0f });
+	m_viewCamera.SetPosition({ 0.0f, 0.0f, 13.0f });
 	return S_OK;
 }
 

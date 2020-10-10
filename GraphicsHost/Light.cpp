@@ -1,11 +1,6 @@
 #include "stdafx.h"
 #include "Light.h"
 
-Light::Light()
-{
-
-}
-
 Light::Light(ComPtr<ID3D11Device> device, 
 	ComPtr<ID3D11DeviceContext> context, 
 	Vector3 diffuseColor,
@@ -32,10 +27,6 @@ Light::Light(ComPtr<ID3D11Device> device,
 	}
 
 	FillBuffer();
-}
-
-Light::~Light()
-{
 }
 
 void Light::SetDiffuse(Vector3 color)

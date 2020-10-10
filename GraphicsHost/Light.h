@@ -2,7 +2,7 @@
 
 using namespace DirectX::SimpleMath;
 
-class Light
+class TEST_API Light
 {
 private:
 	Vector3 m_diffuseColor;
@@ -15,13 +15,13 @@ private:
 	void FillBuffer();
 
 public:
-	Light();
+	Light() {};
 	Light(ComPtr<ID3D11Device> device, 
 		ComPtr<ID3D11DeviceContext> context, 
 		Vector3 diffuseLightColor = {1.0f, 1.0f, 1.0f},
 		Vector3 ambientColor = {0.4f, 0.4f, 0.4f},
 		Vector3 lightDirection = Vector3(0, 0, 1.0f));
-	~Light();
+	~Light() {};
 
 	void SetDiffuse(Vector3 color);
 	Vector3 GetDiffuse(void);

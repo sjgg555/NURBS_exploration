@@ -1,3 +1,10 @@
 /.vs/
 /x64/
 /GraphicsHost/x64/
+/Tests/x64
+/Tests/x86
+/GraphicsHost/Release/GraphicsHost.tlog/
+/GraphicsHost/Debug/GraphicsHost.tlog/
+/Tests/Release/Tests.tlog/
+/GraphicsHost/Release/GraphicsHost.log
+/GraphicsHost/Release/vc142.pdb
