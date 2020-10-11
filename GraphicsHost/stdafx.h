@@ -24,22 +24,3 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
-
-#include <d3d11.h>
-#include <dxgi.h>
-#include <DirectXMath.h>
-#include <DirectXColors.h>
-#include <wrl/client.h>
-#include <d3dcompiler.h>
-#include "SimpleMath.h"
-
-#ifdef Tests_EXPORTS
-#define TEST_API __declspec(dllexport)
-#else
-#define TEST_API 
-#endif
-
-
-// reference additional headers your program requires here
-
-using namespace Microsoft::WRL;

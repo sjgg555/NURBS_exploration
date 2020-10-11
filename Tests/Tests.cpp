@@ -1,9 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "Engine.h"
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-// Windows Header Files
-#include <windows.h>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace DirectX::SimpleMath;

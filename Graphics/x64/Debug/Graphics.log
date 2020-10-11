@@ -1,0 +1,86 @@
+﻿  compilation object save succeeded; see Y:\Code Projects\NURBS\GraphicsHost\Graphics\x64\Debug\PixelShader.cso
+  compilation object save succeeded; see Y:\Code Projects\NURBS\GraphicsHost\Graphics\x64\Debug\VertexShader.cso
+  pch.cpp
+  Camera.cpp
+  Cube.cpp
+  Engine.cpp
+  Graphics.cpp
+  Light.cpp
+  NURBSMesh.cpp
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(58,60): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(58,49): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(58,38): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(63,61): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(63,50): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(63,30): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(68,62): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(68,42): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(68,30): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(73,61): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(73,41): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(73,38): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(141,65): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(141,48): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\NURBSMesh.cpp(141,31): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=tinyspline::real
+          ]
+  Generating Code...
+  Graphics.vcxproj -> Y:\Code Projects\NURBS\GraphicsHost\x64\Debug\Graphics.lib

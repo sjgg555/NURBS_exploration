@@ -1,0 +1,4 @@
+Y:\Code Projects\NURBS\GraphicsHost\x64\Debug\Graphics.pdb
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\x64\Debug\Graphics.pdb
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\x64\Debug\PixelShader.cso
+Y:\Code Projects\NURBS\GraphicsHost\Graphics\x64\Debug\VertexShader.cso

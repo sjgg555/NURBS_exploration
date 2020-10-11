@@ -33,7 +33,5 @@
 #include <d3dcompiler.h>
 #include "SimpleMath.h"
 
-#define Tests_EXPORTS
-
 
 #endif //PCH_H

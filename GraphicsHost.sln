@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GraphicsHost", "GraphicsHos
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{267B24A6-61B9-45C5-94AA-43FF65856984}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphics", "Graphics\Graphics.vcxproj", "{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{267B24A6-61B9-45C5-94AA-43FF65856984}.Release|x64.Build.0 = Release|x64
 		{267B24A6-61B9-45C5-94AA-43FF65856984}.Release|x86.ActiveCfg = Release|Win32
 		{267B24A6-61B9-45C5-94AA-43FF65856984}.Release|x86.Build.0 = Release|Win32
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Debug|x64.ActiveCfg = Debug|x64
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Debug|x64.Build.0 = Debug|x64
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Debug|x86.ActiveCfg = Debug|Win32
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Debug|x86.Build.0 = Debug|Win32
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Release|x64.ActiveCfg = Release|x64
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Release|x64.Build.0 = Release|x64
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Release|x86.ActiveCfg = Release|Win32
+		{9564F99F-DABA-4AF9-A042-A0A9EFA044D8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

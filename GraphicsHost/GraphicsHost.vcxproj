@@ -75,15 +75,15 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>includes\;$(IncludePath)</IncludePath>
-    <LibraryPath>includes\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)includes\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>includes\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)includes;$(IncludePath)</IncludePath>
     <LibraryPath>includes\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -109,18 +109,19 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USE_MATH_DEFINES;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)includes;$(SolutionDir)Graphics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;winmm.lib;d3dcompiler.lib;tinysplined.lib;tinysplinecppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;winmm.lib;d3dcompiler.lib;$(SolutionDir)$(Platform)\$(Configuration)\Graphics.lib;tinysplined.lib;tinysplinecppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>include\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(ProjectDir)includes\tinyspline_$(Configuration)\tinysplined.dll" "$(TargetDir)"
-copy "$(ProjectDir)includes\tinyspline_$(Configuration)\tinysplinecppd.dll" "$(TargetDir)"
-copy "$(ProjectDir)VertexShader.cso" "$(TargetDir)"
-copy "$(ProjectDir)PixelShader.cso" "$(TargetDir)"
+      <Command>copy "$(SolutionDir)includes\tinyspline\$(Configuration)\tinysplined.dll" "$(TargetDir)"
+copy "$(SolutionDir)includes\tinyspline\$(Configuration)\tinysplinecppd.dll" "$(TargetDir)"
+copy "$(SolutionDir)$(Platform)\$(Configuration)\VertexShader.cso" "$(TargetDir)"
+copy "$(SolutionDir)$(Platform)\$(Configuration)\PixelShader.cso" "$(TargetDir)"
 copy "$(ProjectDir)LICENSE" "$(TargetDir)tinyspline_LICENCE"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -153,43 +154,32 @@ copy "$(ProjectDir)LICENSE" "$(TargetDir)tinyspline_LICENCE"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USE_MATH_DEFINES;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d11.lib;winmm.lib;d3dcompiler.lib;tinyspline.lib;tinysplinecpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;winmm.lib;d3dcompiler.lib;$(SolutionDir)$(Platform)\$(Configuration)\Graphics.lib;tinyspline.lib;tinysplinecpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>include\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(ProjectDir)includes\tinyspline_$(Configuration)\tinyspline.dll" "$(TargetDir)"
-copy "$(ProjectDir)includes\tinyspline_$(Configuration)\tinysplinecpp.dll" "$(TargetDir)"
-copy "$(ProjectDir)VertexShader.cso" "$(TargetDir)"
-copy "$(ProjectDir)PixelShader.cso" "$(TargetDir)"
+      <Command>copy "$(SolutionDir)includes\tinyspline\$(Configuration)\tinyspline.dll" "$(TargetDir)"
+copy "$(SolutionDir)includes\tinyspline\$(Configuration)\tinysplinecpp.dll" "$(TargetDir)"
+copy "$(SolutionDir)Graphics\$(Platform)\$(Configuration)\VertexShader.cso" "$(TargetDir)"
+copy "$(SolutionDir)Graphics\$(Platform)\$(Configuration)\PixelShader.cso" "$(TargetDir)"
 copy "$(ProjectDir)LICENSE" "$(TargetDir)inyspline_LICENCE"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Engine.h" />
     <ClInclude Include="GraphicsHost.h" />
-    <ClInclude Include="IDrawable.h" />
-    <ClInclude Include="Light.h" />
-    <ClInclude Include="Cube.h" />
-    <ClInclude Include="NURBSMesh.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GraphicsHost.cpp" />
-    <ClCompile Include="Light.cpp" />
-    <ClCompile Include="Cube.cpp" />
-    <ClCompile Include="NURBSMesh.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -203,64 +193,6 @@ copy "$(ProjectDir)LICENSE" "$(TargetDir)inyspline_LICENCE"</Command>
   <ItemGroup>
     <Image Include="GraphicsHost.ico" />
     <Image Include="small.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="Shaders\PixelShader.hlsl">
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SimplePixelShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Shaders/%(Filename).h</HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Shaders/%(Filename).cso</ObjectFileOutput>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SimplePixelShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Shaders/%(Filename).h</HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Shaders/%(Filename).cso</ObjectFileOutput>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PixelShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).cso</ObjectFileOutput>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PixelShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).cso</ObjectFileOutput>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SimplePixelShader</EntryPointName>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SimplePixelShader</EntryPointName>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SimplePixelShader</EntryPointName>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SimplePixelShader</EntryPointName>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-    </FxCompile>
-    <FxCompile Include="Shaders\VertexShader.hlsl">
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SimpleVertexShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Shaders/%(Filename).h</HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Shaders/%(Filename).cso</ObjectFileOutput>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SimpleVertexShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Shaders/%(Filename).h</HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Shaders/%(Filename).cso</ObjectFileOutput>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VertexShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).cso</ObjectFileOutput>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VertexShader</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </HeaderFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).cso</ObjectFileOutput>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SimpleVertexShader</EntryPointName>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SimpleVertexShader</EntryPointName>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SimpleVertexShader</EntryPointName>
-      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SimpleVertexShader</EntryPointName>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
-      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
